@@ -39,7 +39,7 @@ class MainViewModel @Inject constructor(
     private val networkHelper: NetworkHelper,
 ) : ViewModel() {
 
-    private val refreshInterval = 30 * 60 * 1000L // 30 minutes in milliseconds
+    private val refreshInterval = 30 * 60 // 30 minutes in seconds
 
     private val vmEvent = MutableSharedFlow<MainEvent>()
     val uiEvent get() = vmEvent.asSharedFlow()
@@ -133,7 +133,7 @@ class MainViewModel @Inject constructor(
                             //room db
                             if (updated) {
                                 //update data which is more than 30 min
-                                Log.i("roomUpdate", "RoomUpdate => ")
+                                Log.i("roomUpdate", "RoomUpdate => $requestTimestamp $source")
                                 for (rate in rateList) {
                                     useCase.updateRate(
                                         amount = rate.amount,

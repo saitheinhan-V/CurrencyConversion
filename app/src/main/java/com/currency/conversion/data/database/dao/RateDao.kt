@@ -27,7 +27,7 @@ interface RateDao {
 
     @Query(
         "UPDATE ${RateEntity.RATE_TABLE} SET " +
-                "${RateEntity.RATE_AMOUNT} = :amount AND " +
+                "${RateEntity.RATE_AMOUNT} = :amount , " +
                 "${RateEntity.RATE_TIMESTAMP} = :timestamp " +
                 "WHERE ${RateEntity.RATE_SOURCE} = :source AND " +
                 "${RateEntity.RATE_CODE} = :code"
