@@ -224,7 +224,7 @@ class MainActivity : AppCompatActivity(), RateAdapter.ItemClickListener {
         viewModel.uiEvent.collectLatest {
             when (it) {
                 is MainEvent.showSnack -> {
-                    Snackbar.make(binding.root, it.message, Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(window.decorView.rootView, it.message, Snackbar.LENGTH_LONG).show()
                 }
             }
         }
